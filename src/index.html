@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CCG Concretos • Lista Tareas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+    <style>
+        /* Estilos para el calendario */
+        #contenedor-principal {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+        }
+        #lista-tareas {
+            width: 75%;
+            max-width: 700px;
+            margin: 20px;
+        }
+        #calendario {
+            width: 45%;
+            max-width: 500px;
+            margin: 20px;
+        }
+        .fc {
+            font-size: 0.8em;
+        }
+        .fc-header-toolbar {
+            margin-bottom: 5px;
+        }
+        .fc-daygrid-day-number {
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor-principal">
+        <section class="todoapp" id="lista-tareas">
+            <header class="header">
+                <h1>
+                    <img src="assets/img/logo.png" alt="Logo CCG" class="logo">
+                </h1>
+                <input class="new-todo" id="nueva-tarea" placeholder="Actividades" autofocus>
+                <input type="date" id="fecha-inicio" class="fecha" placeholder="Fecha de inicio">
+                <input type="date" id="fecha-fin" class="fecha" placeholder="Fecha de finalización">
+                <button id="agregar-tarea">Agregar</button>
+            </header>
+            <section class="main">
+                <input id="toggle-all" class="toggle-all" type="checkbox">
+                <label for="toggle-all">Marcar todo como completo</label>
+                <ul class="todo-list">
+                </ul>
+            </section>
+            <footer class="footer">
+                <span class="todo-count"><strong>0</strong> pendiente(s)</span>
+                <ul class="filters">
+                    <li><a class="selected filtro" href="#/">Todos</a></li>
+                    <li><a class="filtro" href="#/active">Pendientes</a></li>
+                    <li><a class="filtro" href="#/completed">Completados</a></li>
+                </ul>
+                <button class="clear-completed">Borra completados</button>
+            </footer>
+        </section>
+        <div id="calendario"></div>
+    </div>
+    <footer class="info"></footer>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendario');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: []
+            });
+            calendar.render();
+            window.calendar = calendar;
+            console.log(window.calendar); // Verifica la asignación de window.calendar
+            console.log('Calendario inicializado');
+        });
+    </script>
+    <script src="index.js" type="module"></script>
+</body>
+</html>
