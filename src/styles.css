@@ -707,3 +707,59 @@ hr {
 
 
 }
+/* Ajuste del diseño principal para hacerlo flexible */
+#contenedor-principal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+    padding: 10px;
+}
+
+/* Ajustes para pantallas medianas y tablets */
+@media (max-width: 768px) {
+    #contenedor-principal {
+        flex-direction: column; /* Cambia a disposición en columna */
+        align-items: center;
+    }
+
+    #lista-tareas, #calendario {
+        width: 90%; /* Se ajusta al ancho del dispositivo */
+        max-width: 100%;
+    }
+
+    .todo-list li {
+        font-size: 18px; /* Ajusta el tamaño del texto */
+    }
+}
+
+/* Ajustes para teléfonos pequeños */
+@media (max-width: 480px) {
+    #lista-tareas, #calendario {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .todo-list {
+        font-size: 0.9em;
+    }
+
+    .fc { 
+        font-size: 0.75em; /* Reduce el tamaño del texto en el calendario */
+    }
+}
+
+/* Ajustes para el encabezado y logo en pantallas pequeñas */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 40px; /* Reduce el tamaño del título */
+    }
+
+    
+    .logo {
+        width: 80%;
+        max-width: 120px; /* Reduce el tamaño del logo */
+    }
+}

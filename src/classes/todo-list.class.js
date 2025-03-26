@@ -24,7 +24,7 @@ export class TodoList {
             if (todo.id == id) {
                 todo.completado = !todo.completado;
                 this.guardarLocalStorage();
-                this.actualizarCalendario(); // Actualizar calendario al marcar como completada
+                this.actualizarCalendario(); // Actualizar calendario 
                 console.log('Se completó la tarea');
                 break;
             }
@@ -48,7 +48,7 @@ export class TodoList {
             ? JSON.parse(localStorage.getItem('todo'))
             : [];
         
-        // Modificamos para que se carguen correctamente las fechas
+        // Se modifica para que se carguen correctamente las fechas
         this.todos = this.todos.map(todo => ({
             ...Todo.fromJson(todo),
             fechaInicio: todo.fechaInicio || '', // Si no tiene fecha, deja un string vacío
@@ -63,7 +63,7 @@ export class TodoList {
 
     actualizarCalendario(tareas = this.todos) {
         if (window.calendar) {
-            window.calendar.getEvents().forEach(event => event.remove()); // Limpiar eventos existentes
+            window.calendar.getEvents().forEach(event => event.remove()); 
             tareas.forEach(todo => {
                 if (todo.fechaInicio) {
                     const event = window.calendar.addEvent({
